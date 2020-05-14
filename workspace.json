@@ -177,6 +177,88 @@
           }
         }
       }
+    },
+    "api-core": {
+      "root": "libs/api-core",
+      "sourceRoot": "libs/api-core/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/api-core/.eslintrc",
+            "tsConfig": [
+              "libs/api-core/tsconfig.lib.json",
+              "libs/api-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/api-core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/api-core/jest.config.js",
+            "tsConfig": "libs/api-core/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/api-core",
+            "tsConfig": "libs/api-core/tsconfig.lib.json",
+            "packageJson": "libs/api-core/package.json",
+            "main": "libs/api-core/src/index.ts",
+            "assets": ["libs/api-core/*.md"]
+          }
+        }
+      }
+    },
+    "web-core": {
+      "projectType": "library",
+      "root": "libs/web-core",
+      "sourceRoot": "libs/web-core/src",
+      "prefix": "nxpm-playground",
+      "architect": {
+        "build": {
+          "builder": "@nrwl/angular:package",
+          "options": {
+            "tsConfig": "libs/web-core/tsconfig.lib.json",
+            "project": "libs/web-core/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libs/web-core/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/web-core/tsconfig.lib.json",
+              "libs/web-core/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/web-core/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/web-core/jest.config.js",
+            "tsConfig": "libs/web-core/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/web-core/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

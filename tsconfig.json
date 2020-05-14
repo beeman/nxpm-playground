@@ -15,7 +15,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nxpm-playground/api-core": ["libs/api-core/src/index.ts"],
+      "@nxpm-playground/web-core": ["libs/web-core/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
