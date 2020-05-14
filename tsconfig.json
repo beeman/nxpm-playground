@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@nxpm-playground/api-core": ["libs/api-core/src/index.ts"],
-      "@nxpm-playground/web-core": ["libs/web-core/src/index.ts"]
+      "@nxpm-playground/web-core": ["libs/web-core/src/index.ts"],
+      "@nxpm-playground/schematics": ["libs/schematics/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
