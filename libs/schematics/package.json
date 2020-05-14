@@ -1,6 +1,6 @@
 {
   "name": "@nxpm-playground/schematics",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "dependencies": {
     "@angular-devkit/core": "^9.1.0",
     "@angular-devkit/schematics": "^9.1.0",
@@ -8,5 +8,6 @@
     "@schematics/angular": "^9.1.0",
     "typescript": "~3.8.3"
   },
-  "schematics": "./lib/collection.json"
+  "schematics": "./lib/collection.json",
+  "license": "MIT"
 }
